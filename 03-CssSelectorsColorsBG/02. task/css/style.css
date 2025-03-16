@@ -1,0 +1,21 @@
+body {
+    max-width: 900px;
+    height: 1200px;
+    margin: auto;
+}
+
+.wrapper {
+    margin-top: 40px;
+    width: 800px;
+    height: 1200px;
+    border: 15px solid black;
+    background-image: url(../img/img2.jpg);
+    background-repeat: no-repeat;
+    overflow: auto; 
+}
+
+.header {
+   font-size: 30px;
+   font-weight: bold;
+
+}

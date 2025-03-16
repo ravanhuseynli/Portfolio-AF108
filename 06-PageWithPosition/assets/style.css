@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.shop-container {
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+
+.shop-sidebar {
+    width: 200px;
+    padding: 12px;
+    border-right: 1px solid #ddd;
+}
+
+.shop-sidebar h2 {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.shop-sidebar ul {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.shop-sidebar ul li {
+    font-size: 12px;
+    color: #555;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.shop-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.shop-sizes span {
+    padding: 4px 7px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.shop-sizes span:hover {
+    background: black;
+    color: white;
+}
+
+.shop-colors {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.color.black { background: black; }
+.color.red { background: red; }
+.color.blue { background: blue; }
+.color.green { background: green; }
+.color.yellow { background: yellow; }
+.color.pink { background: pink; }
+.color.brown { background: brown; }
+.color.white { background: white; border: 1px solid #000; }
+
+.shop-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.shop-tags span {
+    padding: 4px 7px;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.shop-tags span:hover {
+    background: black;
+    color: white;
+}
+
+.product-list {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-left: 12px;
+    justify-content: space-between;
+}
+
+.product-card {
+    width: calc(33.33% - 12px);
+    padding: 6px;
+    border: 1px solid #ddd;
+    text-align: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sale-label {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background: red;
+    color: white;
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.rating {
+    color: gold;
+    font-size: 12px;
+    margin: 4px 0;
+}
+
+.product-card p {
+    font-size: 12px;
+    color: #333;
+}

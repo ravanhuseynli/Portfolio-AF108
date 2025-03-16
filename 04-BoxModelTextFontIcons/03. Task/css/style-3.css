@@ -1,0 +1,54 @@
+body {
+    background: #f4f0e8;
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    padding: 50px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 72px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #a57b39;
+    margin-top: -20px;
+}
+
+.subtitle {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #222;
+}
+
+.italic {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    color: #a57b39;
+    margin-top: 20px;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #666;
+    text-transform: uppercase;
+}

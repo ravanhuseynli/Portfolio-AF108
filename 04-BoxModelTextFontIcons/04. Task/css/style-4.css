@@ -1,0 +1,41 @@
+.description {
+    width: 60%; 
+    margin: 0 auto; 
+}
+
+.header {
+    display: block;
+    margin: 20px 0; 
+}
+
+.header span {
+    display: inline-block;
+    width: 30%;
+    text-align: left; 
+    font-weight: bold;
+    vertical-align: top; 
+}
+
+#head {
+
+    color: blue;
+}
+
+.text {
+    display: inline-block;
+    width: 65%;
+    text-align: left;
+    margin-left: 5%;
+    color: black;
+}
+
+.text2 {
+    display: inline-block;
+    width: 65%;
+    text-align: left;
+    margin-left: 5%;
+    font-style: italic; 
+    font-weight: bold;
+    color: black;
+
+}

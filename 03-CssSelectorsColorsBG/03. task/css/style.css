@@ -1,0 +1,20 @@
+body {
+    margin: 0 auto; 
+    height: 100vh; 
+    background-image: url(../img/fantasy-whale-sky_23-2151446027.avif);
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover;
+}
+
+.wrapper {
+    max-width: 500px;
+    padding: 10px;
+    height: 200px;
+    margin: auto;
+    text-align: center;
+    border: 2px solid;
+    margin-top: 200px;
+    background-color: rgba(241, 40, 241, 0.343);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px;
+}

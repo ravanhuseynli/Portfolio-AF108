@@ -1,0 +1,31 @@
+body {
+    max-width: 1300px;
+    max-height: 600px;
+    margin: auto;
+}
+
+.header  {
+    color: darkblue;
+    font-weight: bold;
+     font-family: monospace;
+     font-size: 35px;
+}
+
+.description {
+    color: rgba(224, 224, 25, 0.653);
+    text-align: center;
+}
+
+.wrapper {
+    width: 1200px;
+    height: 1000px;
+    background-image: url(https://img.cz.favicdn.net/images/products/600x600/02c7bd34-1d56-4b54-96d6-6aedbb6081f2.jpg);
+    background-position: center center; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+.container{
+    color: rgba(224, 224, 25, 0.653);
+    text-align: center;
+}
