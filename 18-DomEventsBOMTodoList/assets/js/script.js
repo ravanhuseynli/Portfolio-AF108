@@ -17,7 +17,6 @@
 // let Display = document.querySelector("#display");
 // let numPoint = document.querySelector("#point");
 
-
 // numNine.addEventListener('click', () => {
 //     Display.value += numNine.textContent;
 //   });
@@ -76,7 +75,114 @@
 //     Display.value += numPoint.textContent;
 //   });
 
-
 // ----------------------------------------------- task 2 --------------------------------------------------------
 
-// catdirmadim :(
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+let todoInput = document.getElementById("todo-input");
+let addButton = document.getElementById("add-todo");
+let todoList = document.getElementById("todo-list");
+let clearButton = document.getElementById("clear-todos");
+
+
+function saveTodos() {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+
+function renderTodos() {
+  todoList.innerHTML = "";
+
+  for (let i = 0; i < todos.length; i++) {
+    let todo = todos[i];
+
+    let li = document.createElement("li");
+    li.className =
+      "list-group-item d-flex justify-content-between align-items-center";
+
+
+    let label = document.createElement("label");
+    label.textContent = i + 1 + ". " + todo.text;
+    label.className = todo.completed ? "todo-completed" : "todo-incomplete";
+    label.style.marginLeft = "8px";
+
+  
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = todo.completed;
+
+    checkbox.addEventListener("change", function () {
+      todo.completed = checkbox.checked;
+      saveTodos();
+      renderTodos();
+    });
+
+  
+    let editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.className = "btn btn-sm btn-warning edit-btn";
+
+    if (todo.completed) {
+      editBtn.disabled = true;
+    }
+
+    editBtn.addEventListener("click", function () {
+      let newText = prompt("Todo'nu dəyiş:", todo.text);
+      if (newText !== null && newText.trim() !== "") {
+        todo.text = newText.trim();
+        saveTodos();
+        renderTodos();
+      }
+    });
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.className = "btn btn-sm btn-danger ms-2";
+
+    let icon = document.createElement("i");
+    icon.className = "fa-solid fa-trash";
+    deleteBtn.appendChild(icon);
+
+    deleteBtn.addEventListener("click", function () {
+      todos.splice(i, 1);
+      saveTodos();
+      renderTodos();
+    });
+
+    let leftDiv = document.createElement("div");
+    leftDiv.className = "d-flex align-items-center";
+    leftDiv.appendChild(checkbox);
+    leftDiv.appendChild(label);
+
+    let rightDiv = document.createElement("div");
+    rightDiv.appendChild(editBtn);
+    rightDiv.appendChild(deleteBtn);
+
+    li.appendChild(leftDiv);
+    li.appendChild(rightDiv);
+    todoList.appendChild(li);
+  }
+}
+
+
+addButton.addEventListener("click", function () {
+  let text = todoInput.value.trim();
+  if (text !== "") {
+    let newTodo = {
+      text: text,
+      completed: false,
+    };
+    todos.push(newTodo);
+    saveTodos();
+    todoInput.value = "";
+    renderTodos();
+  }
+});
+
+
+clearButton.addEventListener("click", function () {
+  todos = [];
+  saveTodos();
+  renderTodos();
+});
+
+renderTodos();
