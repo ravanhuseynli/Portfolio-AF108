@@ -1,0 +1,25 @@
+.payments_container {
+    max-width: 100%;
+    background-color: #F8F9FA;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 800px;
+    padding-top: 50px;
+}
+
+
+.payment_card {
+    margin-top: 40px;
+    width: 400px;
+    height: 530px;
+    margin-left: 40px;
+    padding: 20px 20px;
+}
+.price{
+    display: flex;
+}
+
+.price p {
+    font-size: 20px;
+    margin-top: 15px;
+}

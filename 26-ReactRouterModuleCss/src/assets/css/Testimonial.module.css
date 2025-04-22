@@ -1,0 +1,28 @@
+
+
+.icon_area p {
+    width: 400px;
+    margin-top: 20px;
+}
+
+.icon_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+}
+
+.icon_area i {
+    text-align: center;
+    font-size: 70px;
+    color: blue;
+}
+
+.card_items {
+    text-align: center;
+    margin-top: 50px;
+    width: 700px;
+    height: 150px;
+    padding: 20px 20px;
+}

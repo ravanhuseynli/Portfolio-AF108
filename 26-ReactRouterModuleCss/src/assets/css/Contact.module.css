@@ -1,0 +1,39 @@
+.formContainer {
+    height: 800px;
+    background-color: #f8f9facf;
+}
+
+.textContainer {
+    padding-top: 10px;
+    margin-top: 100px;
+}
+
+.textContainer i {
+    font-size: 70px;
+    color: blue; 
+}
+
+
+.form_area {
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 35%;
+    height: 400px;
+
+}
+
+
+form input {
+    margin-top: 30px;
+}
+
+form textarea{
+    height: 200px;
+    margin-top: 30px;
+}
+
+
+form button {
+    margin-top: 30px;
+    width: 100%;
+}
