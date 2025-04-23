@@ -1,0 +1,122 @@
+/* .counter-container {
+    text-align: center;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    border-radius: 10px;
+    width: 300px;
+    margin: 100px auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .btn-group button,
+  .custom-step button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn-group button:hover,
+  .custom-step button:hover {
+    background: #388e3c;
+  }
+  
+  .custom-step input {
+    padding: 10px;
+    width: 100px;
+    margin-right: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  */
+
+
+.counter-container {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.counter-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.btn-group {
+    margin: 20px 0;
+}
+.btn-group button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #bc48ff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-group button:hover {
+    background-color: #9b4fc7;
+}
+
+.custom-step {
+    margin: 20px 0;
+}
+.custom-step input {
+    padding: 10px;
+    width: 60px;
+    margin-right: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.custom-step button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #474bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.custom-step button:hover {
+    background-color: #1976D2;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #5D8AA8; */
+    background: #474bff;
+background: -webkit-linear-gradient(105deg, #474bff 0%, #bc48ff 100%);
+background: linear-gradient(105deg, #474bff 0%, #bc48ff 100%);
+}
