@@ -1,93 +1,118 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { useState, useEffect, useRef } from 'react';
+import styles from './App.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || []);
   const [inputValue, setInputValue] = useState('');
-
-  useEffect(() => {
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []);
-
+  const [editId, setEditId] = useState(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
   const handleAddTodo = () => {
-    if (inputValue.trim() === '') return;
+    if (inputValue.trim() === '') {
+      toast.warning("Boş todo əlavə edilə bilməz");
+      return;
+    }
 
-    const newTodo = {
-      id: uuidv4(),
-      text: inputValue,
-    };
+    if (editId) {
+      setTodos(prev =>
+        prev.map(todo =>
+          todo.id === editId ? { ...todo, text: inputValue } : todo
+        )
+      );
+      toast.success("Todo yeniləndi");
+      setEditId(null);
+    } else {
+      const newTodo = {
+        id: uuidv4(),
+        text: inputValue,
+        completed: false,
+      };
+      setTodos([...todos, newTodo]);
+      toast.success("Yeni todo əlavə edildi");
+    }
 
-    setTodos([...todos, newTodo]);
     setInputValue('');
+    inputRef.current.focus();
+  };
+
+  const handleToggleComplete = (id) => {
+    setTodos(prev =>
+      prev.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+    toast.info("Todo statusu dəyişdi");
   };
 
   const handleClearTodos = () => {
     setTodos([]);
+    toast.success("Bütün todolar silindi");
   };
 
-  const handleDeleteTodo = (id) => {
-    const updatedTodos = todos.filter(todo => todo.id !== id);
-    setTodos(updatedTodos);
+  const handleEdit = (todo) => {
+    setInputValue(todo.text);
+    setEditId(todo.id);
+    inputRef.current.focus();
   };
 
   return (
     <div>
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossOrigin="anonymous"
-        referrerPolicy="no-referrer"
-      />
-      <title>TodoList</title>
+    <ToastContainer />
+    <h1 className="">Todo List</h1>
+    <div >
+      <div className={styles.inputGroup}>
+        <input
+          ref={inputRef}
+          type="text"
+          className="form-control"
+          placeholder="Todo əlavə et"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button onClick={handleAddTodo} className={styles.addBtn}>
+          {editId ? "Update" : "Add Todo"}
+        </button>
+      </div>
 
-      <div className="container mt-5">
-        <h1 className="text-center mb-4">Todo List</h1>
-        <div className="todo-app mx-auto">
-          <input
-            type="text"
-            className="form-control mb-3"
-            placeholder="Add todos"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-          <button onClick={handleAddTodo} className="btn btn-primary w-100 mb-3">
-            Add Todo
-          </button>
-          <ul className="list-group">
-            {todos.map((todo) => (
-              <li key={todo.id} className="list-group-item d-flex justify-content-between align-items-center">
-                {todo.text}
+        <ul className="list-group">
+          {todos.map((todo, index) => (
+          <li
+          key={todo.id}
+          className={`${styles.todoItem} ${todo.completed ? styles.todoCompleted : styles.todoIncomplete}`}
+        >
+              <span>
+                <strong>{index + 1}.</strong> {todo.text}
+              </span>
+              <div>
                 <button
-                  className="btn btn-sm btn-outline-danger"
-                  onClick={() => handleDeleteTodo(todo.id)}
+                  className={`${styles.editBtn}`}
+                  onClick={() => handleToggleComplete(todo.id)}
                 >
-                  Delete
+                  {todo.completed ? "Undo" : "Complete"}
                 </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="text-center mt-4">
-          <button onClick={handleClearTodos} className="btn btn-danger">
-            Clear All Todos
+                {!todo.completed && (
+                 <button
+                 className={`${styles.editBtn}` }
+                 onClick={() => handleEdit(todo)}
+               >
+                 Edit
+               </button>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div>
+          <button onClick={handleClearTodos} className={`${styles.deleteBtn}` }>
+            Delete All Todos
           </button>
         </div>
       </div>
