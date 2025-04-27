@@ -1,0 +1,81 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form input {
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+
+.form button {
+  padding: 6px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background-color: #f0ad4e;
+  border: none;
+  color: white;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item {
+  margin-bottom: 10px;
+}
+
+.user-item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #5bc0de;
+  border: none;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: white;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal input {
+  display: block;
+  margin: 10px auto;
+  padding: 5px 10px;
+}
+
+.modal button {
+  padding: 6px 12px;
+  margin: 5px;
+}
+
+.close-btn {
+  background-color: #999;
+  border: none;
+  color: white;
+}
